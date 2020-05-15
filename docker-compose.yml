@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+    backend:
+        restart: always
+        container_name: catfactsapi
+        build:
+            context: FlaskAPI
+        networks:
+            - catfacts
+networks:
+    catfacts:
+            driver: "bridge"
