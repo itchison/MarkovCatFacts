@@ -14,7 +14,7 @@ text_model = markovify.Text(text)
 
 @app.route("/")
 def hello():
-    return "Flask inside Docker!!"
+    return text_model.make_sentence()
 
 
 if __name__ == "__main__":

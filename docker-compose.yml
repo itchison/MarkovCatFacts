@@ -6,6 +6,10 @@ services:
         container_name: catfactsapi
         build:
             context: FlaskAPI
+        ports:
+            - 5000:5000
+        volumes:
+            - ./FlaskAPI/:/app/
         networks:
             - catfacts
 networks:

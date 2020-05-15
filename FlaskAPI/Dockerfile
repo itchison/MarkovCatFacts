@@ -15,4 +15,5 @@ COPY . .
 
 # Run the server
 EXPOSE 5000
-CMD [ "flask", "run"]
+ENTRYPOINT ["python"]
+CMD ["app.py"]
