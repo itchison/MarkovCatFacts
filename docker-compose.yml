@@ -1,7 +1,7 @@
-version: "2"
+version: "3.5"
 
 services:
-    backend:
+    catfactsbackend:
         restart: always
         container_name: catfactsapi
         build:
@@ -12,6 +12,20 @@ services:
             - ./FlaskAPI/:/app/
         networks:
             - catfacts
+    catfactsapp:
+        container_name: catfactsapp
+        restart: always
+        build:
+            context: FrontEnd
+        command: ng serve --host 0.0.0.0 --disableHostCheck true
+        ports:
+            - "4200:4200"
+        networks:
+            - catfacts
+        depends_on:
+            - catfactsbackend
+        tty: true
+        
 networks:
     catfacts:
             driver: "bridge"
